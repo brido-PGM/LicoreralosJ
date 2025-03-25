@@ -19,7 +19,7 @@ Proyecto Licorera los J realizado en NodeJS
 - Nombre de la funciones en minuscula y con snakecase (si el nombre contiene espacios)
 
 ## Tareas
-- [ ] Crear base de datos en MongoDB    **- Josue Alvarez**
+- [X] Crear base de datos en MongoDB    **- Josue Alvarez**
 - [ ] Crear el config.js                **- Josue Alvarez**
 - [ ] Crear los modelos                 **- Brian Bedoya**
 - [ ] Crear los controllers             **- Josue Alvarez, Brian Bedoya**
