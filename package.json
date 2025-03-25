@@ -1,0 +1,26 @@
+{
+  "name": "licorera_los_j",
+  "version": "1.0.0",
+  "description": "Creacion del proyecto en NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brido-PGM/LicoreralosJ.git"
+  },
+  "keywords": [
+    "Node",
+    "NodeJS",
+    "Licorera",
+    "Proyecto",
+    "Formativo"
+  ],
+  "author": "Brian Bedoya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brido-PGM/LicoreralosJ/issues"
+  },
+  "homepage": "https://github.com/brido-PGM/LicoreralosJ#readme"
+}
