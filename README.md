@@ -19,12 +19,12 @@ Proyecto Licorera los J realizado en NodeJS
 - Nombre de la funciones en minuscula y con snakecase (si el nombre contiene espacios)
 
 ## Tareas
-- [ ]Crear el index.js                 **- Sebastian Sanchez**
-- [ ]Crear las rutas                   **- Johan Valencia**
-- [ ]Crear base de datos en MongoDB    **- Josue Alvarez**
-- [ ]Crear los modelos                 **- Brian Bedoya**
-- [ ]Crear el config.js                **- Josue Alvarez**
-- [ ]Crear la interfaz grafica
+- [ ] Crear el index.js                 **- Sebastian Sanchez**
+- [ ] Crear las rutas                   **- Johan Valencia**
+- [ ] Crear base de datos en MongoDB    **- Josue Alvarez**
+- [ ] Crear los modelos                 **- Brian Bedoya**
+- [ ] Crear el config.js                **- Josue Alvarez**
+- [ ] Crear la interfaz grafica
 
 ## Uso
 > [!NOTE] 
