@@ -22,5 +22,13 @@
   "bugs": {
     "url": "https://github.com/brido-PGM/LicoreralosJ/issues"
   },
-  "homepage": "https://github.com/brido-PGM/LicoreralosJ#readme"
+  "homepage": "https://github.com/brido-PGM/LicoreralosJ#readme",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.13.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
 }
