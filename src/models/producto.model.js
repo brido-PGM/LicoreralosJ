@@ -31,4 +31,4 @@ const schemaProducto = new mongo.schema({
 },{versionKey: false});
 
 const modeloProducto = modelo.model('producto', schemaProducto);
-module.exports = modeloProducto
+module.exports = modelo_producto
