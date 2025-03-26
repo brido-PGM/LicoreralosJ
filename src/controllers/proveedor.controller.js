@@ -1,12 +1,12 @@
-const modeloProveedor = require('../models/proveedor.model')
-const modeloUsuario = require('../models/usuario.model')
+const modelo_proveedor = require('../models/proveedor.model')
+const modelo_usuario = require('../models/usuario.model')
 
 exports.create = async (req, res)=>{
-    let buscar_admin = await modeloUsuario.findOne({"cuenta": "Administrador"});
+    let buscar_admin = await modelo_usuario.findOne({"cuenta": "Administrador"});
     let admin = res.json(buscar_admin);
 
-    let nuevo_proveedor = new modeloProveedor({
-        "admnId": admin._id,
+    let nuevo_proveedor = new modelo_proveedor({
+        "admin_id": admin._id,
         "empresa": req.body.empresa,
         "correo": req.body.correo,
         "nombre": req.body.nombre,
@@ -18,7 +18,7 @@ exports.create = async (req, res)=>{
 }
 
 exports.list = async (req, res)=>{
-    let resultado = await modeloProveedor.find();
+    let resultado = await modelo_proveedor.find();
     console.log(resultado);
     if(resultado){
         res.json(resultado);
@@ -28,7 +28,7 @@ exports.list = async (req, res)=>{
 }
 
 exports.search = async (req, res)=>{
-    let resultado = await modeloProveedor.findById(req.body.nombre);
+    let resultado = await modelo_proveedor.findById(req.body.nombre);
     console.log(resultado);
     if(resultado){
         res.json(resultado);
@@ -38,7 +38,7 @@ exports.search = async (req, res)=>{
 }
 
 exports.delete = async (req, res)=>{
-    let resultado = await modeloProveedor.findByIdAndDelete(req.body.id);
+    let resultado = await modelo_proveedor.findByIdAndDelete(req.body.id);
     console.log(resultado);
     if(resultado){
         res.json({"mensaje": "Proveedor eliminado"});
@@ -48,7 +48,7 @@ exports.delete = async (req, res)=>{
 }
 
 exports.update = async (req, res)=>{
-    let resultado = await modeloProveedor.findByIdAndUpdate(req.body.id, {
+    let resultado = await modelo_proveedor.findByIdAndUpdate(req.body.id, {
         "empresa": req.body.empresa,
         "correo": req.body.correo,
         "nombre": req.body.nombre,

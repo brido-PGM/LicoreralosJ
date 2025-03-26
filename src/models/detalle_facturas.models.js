@@ -1,19 +1,16 @@
 const mongo= require('../config/conection')
 
 
-const schemaDetalles_facturas=new mongoose.Schema({
-    producId:{
+const schema_detalles_facturas=new mongoose.Schema({
+    producto_id:{
         type:mongo.Schema.Types.ObjectId,
         ref:'producto'
     },
-
-    factuId:{
+    factura_id:{
         ype:mongo.Schema.Types.ObjectId,
         ref:'factura'
     }
+},{versionKey: false});
 
-
-}    
-)
-const modeloDetalles_facturas = modelo.model('detalles_factura', schemaDetalles_facturas);
-module.exports = modeloDetalles_facturas
+const modelo_detalles_facturas = mongo.model('detalles_facturas', schema_detalles_facturas);
+module.exports = modelo_detalles_facturas

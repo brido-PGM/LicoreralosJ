@@ -1,7 +1,7 @@
 
 const mongo = require('../config/conection')
 
-const schemaProducto = new mongo.schema({
+const schema_producto = new mongo.schema({
     nombre_producto: {
         type: String,
         required: true,
@@ -30,5 +30,5 @@ const schemaProducto = new mongo.schema({
     }
 },{versionKey: false});
 
-const modeloProducto = modelo.model('producto', schemaProducto);
+const modelo_producto = mongo.model('producto', schema_producto);
 module.exports = modelo_producto

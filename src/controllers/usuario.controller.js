@@ -1,7 +1,7 @@
-const modeloUsuario = require('../models/usuario.model');
+const modelo_usuario = require('../models/usuario.model');
 
 exports.create = async (req, res)=>{
-    let nuevo_usuario = new modeloUsuario({
+    let nuevo_usuario = new modelo_usuario({
         "nombre": req.body.nombre,
         "apellido": req.body.apellido,
         "cuenta": req.body.cuenta,
@@ -14,7 +14,7 @@ exports.create = async (req, res)=>{
 }
 
 exports.list = async (req, res)=>{
-    let resultado = await modeloUsuario.find();
+    let resultado = await modelo_usuario.find();
     console.log(resultado);
     if(resultado){
         res.json(resultado);
@@ -24,7 +24,7 @@ exports.list = async (req, res)=>{
 }
 
 exports.search = async (req, res)=>{
-    let resultado = await modeloUsuario.findById(req.body.correo);
+    let resultado = await modelo_usuario.findById(req.body.correo);
     console.log(resultado);
     if(resultado){
         res.json(resultado);
@@ -34,7 +34,7 @@ exports.search = async (req, res)=>{
 }
 
 exports.delete = async (req, res)=>{
-    let resultado = await modeloUsuario.findByIdAndDelete(req.body.correo);
+    let resultado = await modelo_usuario.findByIdAndDelete(req.body.correo);
     console.log(resultado);
     if(resultado){
         res.json({"mensaje": "Usuario eliminado"});
@@ -44,7 +44,7 @@ exports.delete = async (req, res)=>{
 }
 
 exports.update = async (req, res)=>{
-    let resultado = await modeloUsuario.findByIdAndUpdate(req.body.correo, {
+    let resultado = await modelo_usuario.findByIdAndUpdate(req.body.correo, {
         "nombre": req.body.nombre,
         "apellido": req.body.apellido,
         "cuenta": req.body.cuenta,

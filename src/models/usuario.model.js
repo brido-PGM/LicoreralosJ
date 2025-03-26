@@ -1,6 +1,6 @@
 const mongo = require('../config/conection')
 
-const schemaUsuario = new mongo.Schema({
+const schema_usuario = new mongo.Schema({
     nombre: {
         type: String,
         required: true,
@@ -34,5 +34,5 @@ const schemaUsuario = new mongo.Schema({
     }
 },{versionKey: false});
 
-const modeloUsuario = modelo.model('usuario', schemaUsuario);
-module.exports = modeloUsuario
+const modelo_usuario = mongo.model('usuario', schema_usuario);
+module.exports = modelo_usuario

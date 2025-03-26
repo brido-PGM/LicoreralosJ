@@ -1,11 +1,9 @@
-const modeloProducto = require('../models/facturas.models');
-
-
+const modelo_producto = require('../models/facturas.models');
 
 // Listar facturas
-exports.listarFacturas = async (req, res) => {
+exports.listar_facturas = async (req, res) => {
     try {
-        const facturas = await modeloProducto.find();
+        const facturas = await modelo_producto.find();
         res.status(200).json(facturas);
     } catch (error) {
         res.status(500).json({ message: 'Error al listar las facturas', error });
@@ -13,11 +11,11 @@ exports.listarFacturas = async (req, res) => {
 };
 
 // Crear factura
-exports.crearFactura = async (req, res) => {
+exports.crear_factura = async (req, res) => {
     try {
-        const nuevaFactura = new modeloProducto(req.body);
-        const facturaGuardada = await nuevaFactura.save();
-        res.status(201).json(facturaGuardada);
+        const nueva_factura = new modelo_producto(req.body);
+        const factura_guardada = await nueva_factura.save();
+        res.status(201).json(factura_guardada);
     } catch (error) {
         res.status(500).json({ message: 'Error al crear la factura', error });
     }

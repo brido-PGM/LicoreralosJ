@@ -1,7 +1,7 @@
 const mongo = require('../config/conection')
 
-const schemaProveedor = new mongo.Schema({
-    adminId: {
+const schema_proveedor = new mongo.Schema({
+    admin_id: {
         type: mongo.Schema.Types.ObjectId,
         ref: 'usuario'
     },
@@ -33,5 +33,5 @@ const schemaProveedor = new mongo.Schema({
     }
 },{versionKey: false});
 
-const modeloProveedor = modelo.model('proveedor', schemaProveedor);
-module.exports = modeloProveedor
+const modelo_proveedor = mongo.model('proveedor', schema_proveedor);
+module.exports = modelo_proveedor

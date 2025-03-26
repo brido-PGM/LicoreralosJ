@@ -1,7 +1,7 @@
-const modeloProducto = require('../models/producto.model');
+const modelo_producto = require('../models/producto.model');
 
 exports.create = async (req, res)=>{
-    let nuevo_producto = new modeloProducto({
+    let nuevo_producto = new modelo_producto({
         "nombre_producto": req.body.nombre_producto,
         "tipo_producto": req.body.tipo_producto,
         "medidas": req.body.medidas,
@@ -14,7 +14,7 @@ exports.create = async (req, res)=>{
 }
 
 exports.list = async (req, res)=>{
-    let resultado = await modeloProducto.find();
+    let resultado = await modelo_producto.find();
     console.log(resultado);
     if(resultado){
         res.json(resultado);
@@ -24,7 +24,7 @@ exports.list = async (req, res)=>{
 }
 
 exports.search = async (req, res)=>{
-    let resultado = await modeloProducto.findById(req.body.nombre_producto);
+    let resultado = await modelo_producto.findById(req.body.nombre_producto);
     console.log(resultado);
     if(resultado){
         res.json(resultado);
@@ -34,7 +34,7 @@ exports.search = async (req, res)=>{
 }
 
 exports.delete = async (req, res)=>{
-    let resultado = await modeloProducto.findByIdAndDelete(req.body.id);
+    let resultado = await modelo_producto.findByIdAndDelete(req.body.id);
     console.log(resultado);
     if(resultado){
         res.json({"mensaje": "Producto eliminado"});
@@ -44,7 +44,7 @@ exports.delete = async (req, res)=>{
 }
 
 exports.update = async (req, res)=>{
-    let resultado = await modeloProducto.findByIdAndUpdate(req.body.nombre_producto, {
+    let resultado = await modelo_producto.findByIdAndUpdate(req.body.nombre_producto, {
         "nombre_producto": req.body.nombre_producto,
         "tipo_producto": req.body.tipo_producto,
         "medidas": req.body.medidas,

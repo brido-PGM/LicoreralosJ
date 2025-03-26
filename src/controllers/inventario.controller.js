@@ -10,8 +10,8 @@ exports.create = async (req, res) => {
     let producto = res.json(buscar_producto);
 
     let nuevo_registro = new modelo_inventario({
-        "userId": usuario._id,
-        "producId": producto.id,
+        "user_id": usuario._id,
+        "producto_id": producto.id,
         "tipo_de_producto": req.body.tipo_de_producto,
         "cantidad": req.body.cantidad,
         "valor_compra": req.body.valor_compra,
@@ -34,12 +34,12 @@ exports.read = async (req, res) => {
 exports.update = async (req, res) => {
     try {
         const { id } = req.params;
-        const updatedData = req.body;
-        const updatedInventario = await modelo_inventario.findByIdAndUpdate(id, updatedData, { new: true });
-        if (!updatedInventario) {
+        const updated_data = req.body;
+        const updated_inventario = await modelo_inventario.findByIdAndUpdate(id, updated_data, { new: true });
+        if (!updated_inventario) {
             return res.status(404).json({ message: "Registro no encontrado" });
         }
-        res.json(updatedInventario);
+        res.json(updated_inventario);
     } catch (error) {
         res.status(500).json({ message: "Error al actualizar el registro", error });
     }
@@ -48,8 +48,8 @@ exports.update = async (req, res) => {
 exports.delete = async (req, res) => {
     try {
         const { id } = req.params;
-        const deletedInventario = await modelo_inventario.findByIdAndDelete(id);
-        if (!deletedInventario) {
+        const deleted_inventario = await modelo_inventario.findByIdAndDelete(id);
+        if (!deleted_inventario) {
             return res.status(404).json({ message: "Registro no encontrado" });
         }
         res.json({ message: "Registro eliminado correctamente" });
