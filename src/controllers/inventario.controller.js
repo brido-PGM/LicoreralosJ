@@ -22,3 +22,39 @@ exports.create = async (req, res) => {
     console.log(resultado);
 }
 
+exports.read = async (req, res) => {
+    try {
+        const inventarios = await modelo_inventario.find();
+        res.json(inventarios);
+    } catch (error) {
+        res.status(500).json({ message: "Error al obtener los registros", error });
+    }
+};
+
+exports.update = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const updatedData = req.body;
+        const updatedInventario = await modelo_inventario.findByIdAndUpdate(id, updatedData, { new: true });
+        if (!updatedInventario) {
+            return res.status(404).json({ message: "Registro no encontrado" });
+        }
+        res.json(updatedInventario);
+    } catch (error) {
+        res.status(500).json({ message: "Error al actualizar el registro", error });
+    }
+};
+
+exports.delete = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const deletedInventario = await modelo_inventario.findByIdAndDelete(id);
+        if (!deletedInventario) {
+            return res.status(404).json({ message: "Registro no encontrado" });
+        }
+        res.json({ message: "Registro eliminado correctamente" });
+    } catch (error) {
+        res.status(500).json({ message: "Error al eliminar el registro", error });
+    }
+};
+

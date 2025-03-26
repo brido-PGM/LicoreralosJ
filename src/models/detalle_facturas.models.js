@@ -15,5 +15,5 @@ const schemaDetalles_facturas=new mongoose.Schema({
 
 }    
 )
-const modeloDetalles_facturas = modelo.model('Detalles_factura', schemaDetalles_facturas);
+const modeloDetalles_facturas = modelo.model('detalles_factura', schemaDetalles_facturas);
 module.exports = modeloDetalles_facturas
