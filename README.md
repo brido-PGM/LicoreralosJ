@@ -20,11 +20,11 @@ Proyecto Licorera los J realizado en NodeJS
 
 ## Tareas
 - [X] Crear base de datos en MongoDB    **- Josue Alvarez**
-- [ ] Crear el config.js                **- Josue Alvarez**
-- [ ] Crear los modelos                 **- Brian Bedoya**
-- [ ] Crear los controllers             **- Josue Alvarez, Brian Bedoya**
+- [X] Crear el config.js                **- Josue Alvarez**
+- [X] Crear los modelos                 **- Brian Bedoya**
+- [X] Crear los controllers             **- Josue Alvarez, Brian Bedoya**
 - [ ] Crear las rutas                   **- Johan Valencia**
-- [ ] Crear el index.js                 **- Sebastian Sanchez**
+- [X] Crear el index.js                 **- Sebastian Sanchez**
 - [ ] Crear la interfaz grafica
 
 ## Uso
