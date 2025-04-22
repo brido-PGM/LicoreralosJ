@@ -1,0 +1,33 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% load humanize %}
+{{ my_num|intcomma }}
+
+
+{% block titulo %}
+    Inicio
+{% endblock  %}
+{% block cuerpo %}
+    {% if data %}
+        <div class="hero">
+            <img src="{% static 'img/bar_licores_iluminado.jpg' %}" alt="Licores">
+            <div class="slider-controls">
+                <span class="current-slide">1</span> / <span class="total-slides">30</span>
+            </div>
+        </div>
+        <section class="offers">
+            <h2>OFERTAS</h2>
+            <div class="products">
+                {% for p in data %}
+                    <div class="product-card">
+                        <img src="{{ p.foto.url }}" alt="{{ p.nombre_producto }}">
+                        <div class="product-info">
+                            <h3>{{ p.nombre_producto }}</h3>
+                            <p class="price">${{ p.precio|intcomma }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
+{% endblock %}

@@ -2,7 +2,7 @@
   "name": "licorera_los_j",
   "version": "1.0.0",
   "description": "Creacion del proyecto en NodeJS",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "node index",
     "dev": "nodemon index",
@@ -27,6 +27,7 @@
   "homepage": "https://github.com/brido-PGM/LicoreralosJ#readme",
   "dependencies": {
     "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
     "express": "^4.21.2",
     "mongoose": "^8.13.0"
   },

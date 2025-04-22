@@ -1,0 +1,76 @@
+{% extends 'layouts/base2.html' %}
+{% load static %}
+
+{% block titulo %}
+    Registrar
+{% endblock  %}
+
+{% block cuerpo %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+</head>
+<body>
+    <nav>
+        <div class="nav-logo"><img src="{% static 'img/logo.png' %}" alt="Logo" height="50px" width="50px">LICORERA LOS J</div>
+        <ul class="nav-menu">
+            <li><a href="{% url 'index' %}">INICIO</a></li>
+        </ul>
+        <div class="nav-icons">
+            <a href="{% url 'login' %}" class="icon-user"><i class="fa-solid fa-user"></i> Inicio</a>
+        </div>
+    </nav>
+    <div class="auth-container">
+        <form method="post" class="auth-form" id="registerForm">
+            {% csrf_token %}
+            <h2>REGÍSTRATE</h2>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input name="nombre" id="nombre" type="text" placeholder="NOMBRE" required>
+                </div>
+                <div class="form-group">
+                    <label for="apellido">Apellido</label>
+                    <input name="apellido" id="apellido" type="text" placeholder="APELLIDO" required>
+                </div>
+            </div>
+                <select name='cuenta' class="form-group" id="cuenta">
+                    <option value=''>Seleccione</option>
+                    <option value='1'>Administrador</option>
+                    <option value='2' selected=''>Cliente</option>
+                </select>
+            <div class="form-group">
+                <label for="email">Correo Electronico</label>
+                <input name="email" id="email" type="email" placeholder="EMAIL" required>
+            </div>
+            <div class="form-group">
+                <label for="contrasena">Contraseña</label>
+                <input name="contrasena" id="contrasena" type="password" placeholder="CONTRASEÑA" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmar_contrasena">Confirmar Contraseña</label>
+                <input name="confirmar_contrasena" id="confirmar_contrasena" type="password" placeholder="CONFIRMAR CONTRASEÑA" required>
+            </div>
+            <p class="mensaje_error"></p>
+            <div class="form-group">
+                <label for="telefono">Telefono</label>
+                <input name="telefono" id="telefono" type="tel" placeholder="TELÉFONO" required>
+            </div>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        <p>{{ message }}</p>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <div class="form-group terms">
+                <label class="checkbox-container">  
+                    <input type="checkbox" required>
+                    <span class="checkmark"></span>
+                    Es probable que las personas que usen nuestro servicio hayan subido tu información de contacto a Licorera Los J. 
+                    <a href="#">Más información</a>
+                </label>
+            </div>
+            <button type="submit" class="auth-button">REGISTRAR</button>
+        </form>
+    </div>
+{% endblock  %}

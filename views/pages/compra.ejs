@@ -1,0 +1,68 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% load humanize %}
+{{ my_num|intcomma }}
+
+{% block titulo %}
+    Canasta de compra
+{% endblock %}
+    
+
+{% block cuerpo %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/canasta.css' %}">
+    <link rel="stylesheet" href="{% static 'css/catalogo.css' %}">
+</head>
+<div class="carrito-container">
+    <div class="carrito-icono">
+        <i class="fas fa-shopping-cart" style="font-size: 48px; color: #333;"></i>
+    </div>
+    {% if request.session.sesion %}
+        <h1 class="carrito-titulo">
+            TU BOLSA
+        </h1>
+        <div class="productos-carrito">
+            <h2 class="carrito-subtitulo">Tus productos</h2>
+                {% for item in productos_carrito %}
+                
+                <div class="product-card">
+                    <img src="{{ item.producto.foto.url }}" alt="{{ item.producto.nombre_producto }}">
+                        <h3 class="nombre">{{ item.producto.nombre_producto }}</h3>
+                        <p class="price">Precio: ${{ item.producto.precio|intcomma }}</p>
+                        <p class="descripcion">Cantidad: {{ item.cantidad }}</p>
+                        <p class="subtotal">Subtotal: ${{ item.subtotal|intcomma }}</p>
+                </div>
+                {% endfor %}
+        </div>
+    {% else %}
+        <h1 class="carrito-titulo">
+            TU BOLSA ESTÁ VACÍA
+        </h1>
+        <p class="carrito-descripcion">
+            Ingresa para ver tu cesta y comenzar a comprar
+        </p>
+        <div class="carrito-botones">
+            <a href="{% url 'index' %}" class="carrito-boton carrito-boton-primario">
+                REGISTRARSE/INICIAR SESIÓN
+            </a>
+            <a href="{% url 'catalogo' %}" class="carrito-boton carrito-boton-secundario">
+                COMPRAR AHORA
+            </a>
+        </div>
+    {% endif %}
+    
+    <div class="sugerencias-container">
+        <h2 class="sugerencias-titulo">Sugerencias para ti</h2>
+        <div class="sugerencias-grid">
+            {% for producto in productos_sugeridos %}
+            <div class="sugerencia-card">
+                <img src="{{ producto.foto.url }}" alt="{{ producto.nombre }}" class="sugerencia-imagen">
+                <h3 class="sugerencia-nombre">{{ producto.nombre|intcomma }}</h3>
+                <p class="sugerencia-precio">${{ producto.precio|intcomma }}</p>
+                <a href="{% url 'detalle_producto' producto.id %}" class="sugerencia-boton">Ver más</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
