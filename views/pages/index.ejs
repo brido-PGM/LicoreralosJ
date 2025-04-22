@@ -1,13 +1,15 @@
-{% extends 'layouts/base.html' %}
-{% load static %}
-{% load humanize %}
-{{ my_num|intcomma }}
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Licorera Los J {% block titulo %} {% endblock %}</title>
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="{% static 'css/carrito.css' %}">
+        <link rel="stylesheet" href="{% static 'css/form-styles.css' %}">
+    </head>
+    <body>
+        <nav>
 
-
-{% block titulo %}
-    Inicio
-{% endblock  %}
-{% block cuerpo %}
+<div class="main-content">
     {% if data %}
         <div class="hero">
             <img src="{% static 'img/bar_licores_iluminado.jpg' %}" alt="Licores">
@@ -19,8 +21,8 @@
             <h2>OFERTAS</h2>
             <div class="products">
                 {% for p in data %}
-                    <div class="product-card">
-                        <img src="{{ p.foto.url }}" alt="{{ p.nombre_producto }}">
+                <div class="product-card">
+                    <img src="{{ p.foto.url }}" alt="{{ p.nombre_producto }}">
                         <div class="product-info">
                             <h3>{{ p.nombre_producto }}</h3>
                             <p class="price">${{ p.precio|intcomma }}</p>
@@ -30,4 +32,9 @@
             </div>
         </section>
     {% endif %}
-{% endblock %}
+</div>
+</body>
+<footer>
+    <%- include('../partials/footer'); %>
+</footer>
+</html>
