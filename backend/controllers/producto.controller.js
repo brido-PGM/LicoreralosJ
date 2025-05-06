@@ -59,3 +59,22 @@ exports.update = async (req, res)=>{
         res.json({"mensaje": "Producto no encontrado"});
     }
 }
+
+
+exports.addProducto= async (req, res)=>{
+
+    try{
+        const ProductoIsRegistered= await modelo_producto.findProducto({isbn: isbn}, {isbn: 1});
+        if(ProductoIsRegistered){
+            res.status(400).json({message: 'El producto ya existe'});
+    }
+    const Producto= await modelo_producto.createProducto(req.body);
+    return res.status(201).json({message: 'Producto creado', Producto});
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({message: 'Error al crear el producto', error});
+    }
+
+};
+
+
