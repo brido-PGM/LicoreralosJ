@@ -2,6 +2,7 @@
 var express = require('express');
 var path = require('path');
 var app = express();
+const enrutador = require('./routes/router')
 app.use(express.static(path.join(__dirname, 'public')));
 
 // set the view engine to ejs
@@ -11,7 +12,7 @@ app.set('view engine', 'ejs');
 
 // index page
 app.get('/', function(req, res) {
-    res.render('pages/index');
+    res.render('pages/listar_productos', { productos: enrutador });
 });
 
 // about page
