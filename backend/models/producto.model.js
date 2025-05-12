@@ -1,7 +1,7 @@
 
 const mongo = require('../config/conection')
 
-const schema_producto = new mongo.schema({
+const schema_producto = new mongo.Schema({
     nombre_producto: {
         type: String,
         required: true,

@@ -1,9 +1,12 @@
-const exp= require('express');
-const router= exp.Router();
-const controlandoProducto= require('../controllers/producto.controller');
+const express = require('express');
+const router = express.Router();
+const productoController = require('../controllers/producto.controller');
 
-router.get('/crearProductos', controlandoProducto.addProducto);
+// Rutas para el CRUD de productos
+router.post('/productos', productoController.create); // Crear
+router.get('/productos', productoController.list); // Listar todos
+router.get('/productos/:id', productoController.search); // Buscar por ID
+router.put('/productos/:id', productoController.update); // Actualizar por ID
+router.delete('/productos/:id', productoController.delete); // Eliminar por ID
 
-router.get('/buscarProductos/:x', controlandoProducto.search);
-
-module.exports= router;
+module.exports = router;

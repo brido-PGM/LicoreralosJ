@@ -1,6 +1,6 @@
 const exp = require('express');
 require('dotenv').config();
-const enrutador = require('./routes/router');
+const enrutador = require('./backend/routes/router');
 
 const app = exp();
 

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD de Productos</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <h1>CRUD de Productos</h1>
+
+    
+    <form id="productoForm">
+        <input type="hidden" id="productoId" />
+        <label for="nombre_producto">Nombre:</label>
+        <input type="text" id="nombre_producto" required />
+        <label for="tipo_producto">Tipo:</label>
+        <input type="text" id="tipo_producto" required />
+        <label for="medidas">Medidas:</label>
+        <input type="text" id="medidas" required />
+        <label for="precio">Precio:</label>
+        <input type="number" id="precio" required />
+        <label for="descripcion">Descripción:</label>
+        <input type="text" id="descripcion" />
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" id="cantidad" required />
+        <button type="submit">Guardar Producto</button>
+    </form>
+
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Tipo</th>
+                <th>Medidas</th>
+                <th>Precio</th>
+                <th>Descripción</th>
+                <th>Cantidad</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="productosTable">
+            
+        </tbody>
+    </table>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
